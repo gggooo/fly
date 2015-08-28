@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cfg.vo.Cons" table="cfg_cons">
+		<id name="id"><column name="id" /><generator class="uuid.hex" /></id>
+		<property name="name" column="name"/>
+		<property name="value" column="value"/>
+		<property name="descr" column="descr"/>
+		<property name="enable" column="enable"/>
+		<property name="ord" column="ord"/>
+		<many-to-one name="domain" column="domain" lazy="false" fetch="join" not-null="false" not-found="ignore"/>
+		<property name="usrct" column="usrct"/>
+	</class>
+</hibernate-mapping>

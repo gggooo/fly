@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cfg.vo.OrgRole" table="cfg_org_role">
+		<id name="id"><column name="id" /><generator class="uuid.hex" /></id>
+		<many-to-one name="org" column="org" lazy="false" fetch="join" not-null="false" not-found="ignore"/>
+		<many-to-one name="role" column="role" lazy="false" fetch="join" not-null="false" not-found="ignore"/>
+	</class>
+</hibernate-mapping>

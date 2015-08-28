@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cfg.vo.Perf" table="cfg_perf">
+		<id name="id"><column name="id" /><generator class="uuid.hex" /></id>
+		<many-to-one name="bean" column="bean" lazy="false" fetch="join" not-null="false" not-found="ignore"/>
+		<many-to-one name="permission" column="permission" lazy="false" fetch="join" not-null="false" not-found="ignore"/>
+		<property name="descr" column="descr"/>
+		<property name="ord" column="ord"/>
+		<property name="layout" column="layout"/>
+		<property name="usrct" column="usrct"/>
+	</class>
+</hibernate-mapping>

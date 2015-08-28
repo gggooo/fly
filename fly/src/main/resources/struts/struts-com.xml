@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com" extends="struts-default" namespace="">
+		<action name="loginPage" class="common.act.LoginAction" method="loginPage">
+			<result name="success">/WEB-INF/jsp/login.jsp</result> 
+		</action>
+		<action name="login" class="common.act.LoginAction" method="login">
+			<result name="input">/WEB-INF/jsp/login.jsp?SignOut=1</result> 
+			<result name="success">/WEB-INF/jsp/home.jsp</result> 
+		</action>
+		<action name="logout" class="common.act.LoginAction" method="logout">
+			<result name="success">/WEB-INF/jsp/login.jsp</result> 
+		</action>
+		<action name="create" class="cfg.act.CreateAction" method="create">
+			<result>/WEB-INF/jsp/common.jsp</result>
+		</action>
+		<action name="createPerf" class="cfg.act.CreateAction" method="createPerf">
+			<result>/WEB-INF/jsp/common.jsp</result>
+		</action>
+	</package>
+	<package name="com_u" extends="auth-interceptor" namespace="">
+		<action name="personSetPage" class="common.act.LoginAction" method="personSetPage">
+			<result name="success">/WEB-INF/jsp/personSet.jsp</result> 
+		</action>
+		<action name="personSet" class="common.act.LoginAction" method="personSet">
+			<result name="success">/WEB-INF/jsp/personSet.jsp</result> 
+		</action>
+		<action name="psdPage" class="common.act.LoginAction" method="psdPage">
+			<result name="success">/WEB-INF/jsp/psd.jsp</result> 
+		</action>
+		<action name="psd" class="common.act.LoginAction" method="psd">
+			<result name="success">/WEB-INF/jsp/psd.jsp</result> 
+		</action>
+	</package>
+	<package name="utilcom" extends="struts-default" namespace="">	
+		<action name="download" class="common.act.CommonAction" method="download">
+			<result name="success" type="stream">   
+                <param name="contentType">   
+                    application/vnd.ms-excel   
+                </param>   
+                <param name="inputName">excelStream</param>   
+                <param name="contentDisposition">   
+                    filename="${fileName}"
+                </param>   
+                <param name="bufferSize">1024</param>   
+            </result>
+		</action>
+		<action name="downloadAttachment" class="common.act.AttachmentAction" method="download"> 
+			<result name="success" type="stream">
+				<!-- 设置为attachment,否则浏览器直接打开而不会出现下载页面 -->
+				<param name="contentDisposition">attachment;filename=${downloadFileName}</param>
+				<!-- downloadFile为DownloadAction中的方法名中的属性-->
+				<param name="inputName">downloadFile</param>
+				<!-- 输出时缓冲区的大小 -->
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="resourceNotFonnd">/404.jsp</result>
+		</action>
+	</package>
+	
+	
+</struts>
