@@ -31,7 +31,6 @@ public class Constant {
 	
 	public static final String FOOTER_HJ = "合计:";
 	public static final String URL_SUFFIX = ".sg";
-	public static final String URL_START = "http://yyap.sz-mtr.com/ice/";
 	public static final  String PAGE_PARAM = "?isPage=1";
 	public static final  String PAGE_PARAM2 = "?isPage=2";
 	public static final String EDIT = "edit";
