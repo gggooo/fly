@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cfg.vo.RoleAtt" table="cfg_role_att">
+		<id name="id"><column name="id" /><generator class="uuid.hex" /></id>
+		<property name="enable" column="enable"/>
+		<property name="createDate" column="createDate"/>
+		<many-to-one name="createMember" column="createMember" lazy="false" fetch="join" not-null="false" not-found="ignore"/>
+		<property name="updateDate" column="updateDate"/>
+		<many-to-one name="updateMember" column="updateMember" lazy="false" fetch="join" not-null="false" not-found="ignore"/>
+		<property name="ws0" column="ws0"/>
+		<property name="ws1" column="ws1"/>
+		<property name="ws2" column="ws2"/>
+		<property name="ws3" column="ws3"/>
+		<property name="ws4" column="ws4"/>
+		<property name="ws5" column="ws5"/>
+		<property name="ws6" column="ws6"/>
+		<property name="ws7" column="ws7"/>
+		<property name="ws8" column="ws8"/>
+		<property name="ws9" column="ws9"/>
+		<many-to-one name="role" column="role" lazy="false" fetch="join" not-null="false" not-found="ignore"/>
+		<property name="att" column="att"/>
+		<property name="usrct" column="usrct"/>
+	</class>
+</hibernate-mapping>

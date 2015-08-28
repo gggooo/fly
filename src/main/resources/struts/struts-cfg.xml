@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="cfg_Cust" extends="my-jsonInterceptor"
+		namespace="/">
+		<action name="cfg_c_Bean_createDb" class="cfg.act.BeanAction"
+			method="c_bean_createDb">
+			<result type="json">
+				<param name="root">bodyHtml</param>
+			</result>
+		</action>
+		<action name="cfg_c_select_votype" class="cfg.act.BeanAction"
+			method="cfg_c_select_votype">
+			<result type="json">
+				<param name="root">nl</param>
+			</result>
+		</action>
+		<action name="cfg_c_Bean_createVo" class="cfg.act.BeanAction"
+			method="c_bean_createVo">
+			<result type="json">
+				<param name="root">bodyHtml</param>
+			</result>
+		</action>
+		<action name="cfg_c_Bean_createPermission" class="cfg.act.BeanAction"
+			method="c_bean_createPermission">
+			<result type="json">
+				<param name="root">bodyHtml</param>
+			</result>
+		</action>
+		<action name="cfg_c_Perf_editUnder" class="cfg.act.PerfAction"
+			method="c_editUnderPerf">
+			<result name="page">/WEB-INF/jsp/common.jsp</result>
+			<result type="json" name="subRes">
+				<param name="root">bodyHtml</param>
+			</result>
+		</action>
+		<action name="cfg_treePerf" class="cfg.act.PerfAction"
+			method="tree">
+			<result type="json">
+				<param name="root">treeValue</param>
+			</result>
+		</action>
+		<action name="cfg_addBean" class="cfg.act.BeanAction"
+			method="add">
+			<result>/WEB-INF/jsp/common.jsp</result>
+		</action>
+		<action name="cfg_addProperty" class="cfg.act.PropertyAction"
+			method="add_">
+			<result>/WEB-INF/jsp/common.jsp</result>
+		</action>
+		<action name="cfg_editProperty" class="cfg.act.PropertyAction"
+			method="edit">
+			<result>/WEB-INF/jsp/common.jsp</result>
+		</action>
+		<action name="cfg_treeProperty" class="cfg.act.PropertyAction"
+			method="tree">
+			<result type="json">
+				<param name="root">treeValue</param>
+			</result>
+		</action>
+		<action name="cfg_c_Role_editUnder" class="cfg.act.RoleAction"
+			method="c_editUnderRole">
+			<result name="page">/WEB-INF/jsp/common.jsp</result>
+			<result type="json" name="tree">
+				<param name="root">treeValue</param>
+			</result>
+			<result type="json" name="perf">
+				<param name="root">bodyHtml</param>
+			</result>
+			<result type="json">
+				<param name="root">bodyHtml</param>
+			</result>
+		</action>
+		<action name="cfg_c_Role_toMemberOrgAtt" class="cfg.act.RoleAction"
+			method="c_roleToMemberOrgAtt">
+			<result name="page">/WEB-INF/jsp/c_roleToMemberOrgAtt.jsp</result>
+			<result name="saved">/WEB-INF/jsp/common.jsp</result>
+			<result type="json" name="orgTree">
+				<param name="root">treeValue</param>
+			</result>
+			<result type="json" name="orgTreeSub">
+				<param name="root">bodyHtml</param>
+			</result>
+			<result type="json" name="member">
+				<param name="root">coeo</param>
+			</result>
+			<result type="json" name="memberSub">
+				<param name="root">bodyHtml</param>
+			</result>
+		</action>
+		<action name="cfg_treeFilter" class="cfg.act.FilterAction"
+			method="tree">
+			<result type="json">
+				<param name="root">treeValue</param>
+			</result>
+		</action>
+		<action name="cfg_treeOrgRole" class="cfg.act.OrgRoleAction"
+			method="tree">
+			<result type="json">
+				<param name="root">treeValue</param>
+			</result>
+		</action>
+		<action name="cfg_treeBean" class="cfg.act.BeanAction"
+			method="tree">
+			<result type="json">
+				<param name="root">treeValue</param>
+			</result>
+		</action>
+		<action name="cfg_selectCons" class="cfg.act.ConsAction"
+			method="select">
+			<result type="json">
+				<param name="root">nl</param>
+			</result>
+		</action>
+	</package>
+	<package name="cfg" extends="my-jsonInterceptor"
+		namespace="/">
+		<action name="*_select*" class="cfg.act.CfgAction"
+			method="select">
+			<result type="json">
+				<param name="root">nl</param>
+			</result>
+		</action>
+		<action name="*_tree*" class="cfg.act.CfgAction"
+			method="tree">
+			<result type="json">
+				<param name="root">treeValue</param>
+			</result>
+		</action>
+		<action name="*_find*" class="cfg.act.CfgAction" method="find">
+			<result name="page">/WEB-INF/jsp/common.jsp</result>
+			<result name="data" type="json">
+				<param name="root">coeo</param>
+			</result>
+			<result name="exp" type="json">
+				<param name="root">exportUrl</param>
+			</result>
+		</action>
+		<action name="*_add*" class="cfg.act.CfgAction" method="add">
+			<result>/WEB-INF/jsp/common.jsp</result>
+		</action>
+		<action name="*_del*" class="cfg.act.CfgAction" method="del">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+		<action name="*_edit*" class="cfg.act.CfgAction" method="edit">
+			<result>/WEB-INF/jsp/common.jsp</result>
+		</action>
+		<action name="*_detail*" class="cfg.act.CfgAction"
+			method="detail">
+			<result>/WEB-INF/jsp/common.jsp</result>
+		</action>
+	</package>
+</struts>
