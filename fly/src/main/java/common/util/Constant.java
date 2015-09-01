@@ -16,11 +16,8 @@ public class Constant {
 	public static final String ENABLE_DEL = "-2";
 	public static final String ENABLE_NOR = "1";
 	
-	public static final String USRCT = "ggg";//new Project's flag, <= 4 char
+	public static final String USRCT = "";//new Project's flag, <= 4 char
 	
-	/**
-	 * 运营各部门基础数据
-	 */
 	/**
 	 * 
 	 */
